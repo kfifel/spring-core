@@ -2,13 +2,15 @@ package com.springcore.repository;
 
 import com.springcore.entities.User;
 import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-//@Profile("dev")
-@Profile("prod")
+@Repository
+@Profile("dev")
+//@Profile("prod")
 public class UserRepositoryImpl implements UserRepository{
     List<User> users = new ArrayList<>(List.of(
             new User(1L, "khalid", "fifel", "khalid@gmail.com", "password"),
