@@ -3,18 +3,19 @@ package com.springcore.repository;
 import com.springcore.entities.User;
 import org.springframework.context.annotation.Profile;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 //@Profile("dev")
 @Profile("prod")
 public class UserRepositoryImpl implements UserRepository{
-    List<User> users = List.of(
+    List<User> users = new ArrayList<>(List.of(
             new User(1L, "khalid", "fifel", "khalid@gmail.com", "password"),
             new User(1L, "ali", "ahmas", "aliali@gmail.com", "password"),
             new User(1L, "mouad", "dzed", "mouad@gmail.com", "password"),
             new User(1L, "fatima", "fathi", "some@gmail.com", "password")
-    );
+    ));
     @Override
     public User save(User user) {
         users.add(user);

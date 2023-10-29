@@ -16,8 +16,11 @@ public class SpringCoreApplication {
 
         ApplicationContext appContext = new ClassPathXmlApplicationContext("applicationContext.xml");
         UserService userService = appContext.getBean("userService", UserService.class);
+        User save = userService.save(new User(5L, "adil", "soufian", "addil@gmail.com", "kjdkjç9"));
+
         userService.findAll().forEach(System.out::println);
 
+        // test throwing error
         userService.update(new User());
 
     }
