@@ -1,7 +1,4 @@
-package com.springcore.aop;
+package com.springcore.aspect;
 
-import org.aspectj.lang.annotation.Aspect;
-
-@Aspect
 public class AspectHelper {
 }

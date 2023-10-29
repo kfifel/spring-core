@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           https://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/aop
+            https://www.springframework.org/schema/aop/spring-aop.xsd"
+>
+    <bean name="userRepository" class="com.springcore.repository.UserRepositoryImpl"/>
+    <bean name="userService" class="com.springcore.service.impl.UserServiceImpl" autowire="constructor">
+        <!-- <property name="userRepository" ref="userRepository"/> -->
+        <!-- <constructor-arg index="0" ref="userRepository"/> -->
+    </bean>
+
+    <bean id="loggingAspect" class="com.springcore.aspect.LoggingAspect"/>
+
+    <aop:config>
+        <aop:aspect ref="loggingAspect" id="loggingAspect">
+            <aop:pointcut expression="execution(* com.springcore.service.*.*(..))" id="businessService"/>
+            <aop:after pointcut-ref="businessService" method="afterAdvice"/>
+            <aop:before pointcut-ref="businessService" method="beforeAdvice"/>
+        </aop:aspect>
+    </aop:config>
+</beans>
