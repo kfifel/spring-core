@@ -1,5 +1,6 @@
 package com.springcore;
 
+import com.springcore.entities.User;
 import com.springcore.service.UserService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -16,6 +17,8 @@ public class SpringCoreApplication {
         ApplicationContext appContext = new ClassPathXmlApplicationContext("applicationContext.xml");
         UserService userService = appContext.getBean("userService", UserService.class);
         userService.findAll().forEach(System.out::println);
+
+        userService.update(new User());
 
     }
 

@@ -4,7 +4,6 @@ import com.springcore.entities.User;
 import com.springcore.repository.UserRepository;
 import com.springcore.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
@@ -39,6 +38,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User update(User user) {
-        return null;
+        throw new IllegalArgumentException("Not implemented yet");
     }
 }

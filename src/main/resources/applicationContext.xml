@@ -20,6 +20,9 @@
             <aop:pointcut expression="execution(* com.springcore.service.*.*(..))" id="businessService"/>
             <aop:after pointcut-ref="businessService" method="afterAdvice"/>
             <aop:before pointcut-ref="businessService" method="beforeAdvice"/>
+            <aop:after-returning pointcut-ref="businessService" method="afterReturningAdvice" returning="result"/>
+            <aop:after-throwing pointcut-ref="businessService" method="afterThrowingAdvice" throwing="exception"/>
+            <aop:around method="withinException" pointcut-ref="businessService"/>
         </aop:aspect>
     </aop:config>
 </beans>
