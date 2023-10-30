@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-//@Profile("dev")
-@Profile("prod")
 public class UserRepositoryImpl implements UserRepository{
     List<User> users = new ArrayList<>(List.of(
             new User(1L, "khalid", "fifel", "khalid@gmail.com", "password"),

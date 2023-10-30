@@ -28,11 +28,12 @@ public class LoggingAspect {
     }
 
     public Object withinException(ProceedingJoinPoint joinPoint) throws Throwable {
+        Object result = null;
         try {
-            return joinPoint.proceed();
+            result = joinPoint.proceed();
         } catch (Exception exception) {
             logger.info("error is thrown"+ exception.getMessage());
         }
-        return null;
+        return result;
     }
 }

@@ -8,9 +8,9 @@
             https://www.springframework.org/schema/aop/spring-aop.xsd"
 >
     <bean name="userRepository" class="com.springcore.repository.UserRepositoryImpl"/>
-    <bean name="userService" class="com.springcore.service.impl.UserServiceImpl" autowire="constructor">
+    <bean name="userService" class="com.springcore.service.impl.UserServiceImpl">
         <!-- <property name="userRepository" ref="userRepository"/> -->
-        <!-- <constructor-arg index="0" ref="userRepository"/> -->
+        <constructor-arg index="0" ref="userRepository"/>
     </bean>
 
     <bean id="loggingAspect" class="com.springcore.aspect.LoggingAspect"/>
