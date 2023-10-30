@@ -14,4 +14,5 @@ public interface UserService {
     Optional<User> findById(Long id);
     void delete(User user);
     User update(User user);
+    List<User> findUsersByFirstnameAndLastname(String firstname, String lastname);
 }

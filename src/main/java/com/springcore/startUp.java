@@ -19,11 +19,9 @@ public class startUp implements CommandLineRunner {
     public void run(String... args) throws Exception {
         System.out.println("from start Up");
 
-        User save = userService.save(new User(5L, "adil", "soufian", "addil@gmail.com", "kjdkjç9"));
+        User save = userService.save(new User(6L, "khalid", "fifel", "khalid@gmail.com", "password"));
 
-        userService.findAll().forEach(System.out::println);
+        userService.findUsersByFirstnameAndLastname("khalid", "fifel").forEach(System.out::println);
 
-        // test throwing error
-        userService.update(new User());
     }
 }
