@@ -45,7 +45,7 @@ public class LoggingAspect {
         try {
             return joinPoint.proceed();
         } catch (Exception exception) {
-            logger.info("error is thrown"+ exception.getMessage());
+            logger.info("error is thrown: "+ exception.getMessage());
         }
         return null;
     }
